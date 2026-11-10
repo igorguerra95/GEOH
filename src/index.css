@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Paleta Nobre Semântica HSL */
+    /* Azul Marinho Primário (#1E3A8A = 221, 68%, 32%) */
+    --primary: 221 68% 32%;
+    --primary-foreground: 210 40% 98%;
+    --primary-deep: 222 55% 8%;
+    --primary-card: 222 47% 12%;
+    --primary-surface: 223 44% 15%;
+
+    /* Dourado Nobre Secundário (#D4AF37 = 46, 65%, 52%) */
+    --secondary: 46 65% 52%;
+    --secondary-foreground: 222 55% 8%;
+    --secondary-glow: 46 75% 60%;
+    --secondary-dark: 44 68% 40%;
+    
+    /* Neutros clínicos e contraste estrito WCAG AA */
+    --background: 222 55% 6%;
+    --foreground: 210 30% 98%;
+    --muted: 220 20% 60%;
+    --muted-dark: 222 30% 20%;
+    --border-hairline: 220 30% 25%;
+    --border-gold: 46 65% 52%;
+    
+    /* Fontes */
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * {
+    border-color: rgba(212, 175, 55, 0.12);
+  }
+
+  body {
+    background-color: #060D1A;
+    color: #F8FAFC;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.03em;
+  }
+}
+
+/* Utilitários Específicos da Direção Visual */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-sans {
+  font-family: var(--font-body);
+}
+
+/* Hairline borders & Glassmorphism sutil */
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hairline-gold {
+  border: 1px solid rgba(212, 175, 55, 0.28);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF0BE 0%, #D4AF37 50%, #AA820A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #E6CA65 0%, #D4AF37 50%, #B89225 100%);
+}
+
+.navy-gradient-card {
+  background: linear-gradient(180deg, rgba(16, 35, 65, 0.75) 0%, rgba(9, 20, 39, 0.95) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.navy-gradient-hero {
+  background: radial-gradient(circle at 50% 20%, rgba(30, 58, 138, 0.35) 0%, rgba(6, 13, 26, 0.98) 75%);
+}
+
+.gold-glow {
+  box-shadow: 0 0 35px -5px rgba(212, 175, 55, 0.25);
+}
+
+.subtle-shadow {
+  box-shadow: 0 20px 40px -15px rgba(2, 6, 23, 0.8), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Efeito de pulso de luz no botão WhatsApp */
+@keyframes gold-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.animate-gold-pulse {
+  animation: gold-pulse 2.4s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+/* Suavidade no scroll */
+html {
+  scroll-behavior: smooth;
+}

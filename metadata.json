@@ -1,0 +1,8 @@
+{
+  "name": "Geoh Fisioterapia Especializada",
+  "description": "Laboratório de alta precisão em reabilitação ortopédica, RPG, pilates clínico e medicina biomecânica avançada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
