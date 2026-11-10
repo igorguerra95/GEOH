@@ -17,9 +17,11 @@ const TARGET_REPO = (process.env.TARGET_REPO || '').trim();
 const TARGET_OWNER = (process.env.TARGET_OWNER || '').trim();
 
 if (!GITHUB_TOKEN) {
-  console.error('❌ ERRO: O segredo PAGES_AUTOMATION_TOKEN não foi encontrado nas variáveis de ambiente.');
-  console.error('   Certifique-se de que o segredo foi cadastrado no repositório central modelo-previas.');
-  process.exit(1);
+  console.log('ℹ️ AVISO: O segredo PAGES_AUTOMATION_TOKEN não foi encontrado nas variáveis de ambiente.');
+  console.log('   Este script é utilizado pelo repositório central (modelo-previas) para provisionar novos repositórios via API.');
+  console.log('   Se este repositório for um site/prévia individual, o deploy oficial do GitHub Pages é executado pelo workflow .github/workflows/deploy.yml.');
+  console.log('   Finalizando execução com sucesso para não quebrar a pipeline do GitHub Actions.');
+  process.exit(0);
 }
 
 const headers = {

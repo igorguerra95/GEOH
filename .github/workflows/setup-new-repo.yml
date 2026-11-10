@@ -52,7 +52,19 @@ jobs:
         with:
           node-version: 22
 
+      - name: Verificar presença do segredo PAGES_AUTOMATION_TOKEN
+        id: check-token
+        run: |
+          if [ -z "${{ secrets.PAGES_AUTOMATION_TOKEN }}" ]; then
+            echo "has_token=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ O segredo PAGES_AUTOMATION_TOKEN não está configurado neste repositório."
+            echo "ℹ️ Se este for um repositório individual de prévia/site, o deploy automático é realizado via .github/workflows/deploy.yml."
+          else
+            echo "has_token=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Executar Automação com PAGES_AUTOMATION_TOKEN
+        if: steps.check-token.outputs.has_token == 'true'
         env:
           PAGES_AUTOMATION_TOKEN: ${{ secrets.PAGES_AUTOMATION_TOKEN }}
           TARGET_REPO: ${{ inputs.target_repo || github.event.client_payload.repo || '' }}
